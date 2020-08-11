@@ -3,9 +3,6 @@ import { Skill } from '../models/skill.model';
 
 // Action Type -> Enum
 export enum SkillActionTypes {
-  LoadSkills = '[Skill] Load Skills',
-  LoadSkills_Success = '[Skill] Load Skills Success',
-  LoadSkills_Error = '[Skill] Load Skills Error',
   AddSkill = '[Skill] Add Skills',
   DeleteSkill = '[Skill] Delete Skills',
   ToggleComplete = '[Skill] ToggleComplete',
@@ -13,20 +10,6 @@ export enum SkillActionTypes {
 }
 
 // Action Creator
-export class LoadSkillsAction implements Action {
-  readonly type = SkillActionTypes.LoadSkills;
-}
-
-export class LoadSkillsSuccess implements Action {
-  readonly type = SkillActionTypes.LoadSkills_Success;
-  constructor(public payload: Skill[]) {}
-}
-
-export class LoadSkillsError implements Action {
-  readonly type = SkillActionTypes.LoadSkills_Error;
-  constructor(public payload: Error) {}
-}
-
 export class AddSkillAction implements Action {
   readonly type = SkillActionTypes.AddSkill;
   constructor(public payload: Skill) {}
@@ -49,9 +32,6 @@ export class ToggleMenuVisibleAction implements Action {
 // Add The Action to the union type
 
 export type SkillActionsUnion =
-  | LoadSkillsAction
-  | LoadSkillsSuccess
-  | LoadSkillsError
   | AddSkillAction
   | DeleteSkillAction
   | ToggleCompleteAction

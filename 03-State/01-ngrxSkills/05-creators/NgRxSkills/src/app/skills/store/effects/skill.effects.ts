@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable, of, EMPTY } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { SkillsService } from '../../skills.service';
 import {
@@ -17,13 +17,28 @@ export class SkillsEffects {
 
   // Note: Make sure you are starting json-server or your api before using this
   @Effect()
-  loadVouchers$: Observable<Action> = this.actions$.pipe(
+  loadSkills$: Observable<Action> = this.actions$.pipe(
     ofType(loadSkills),
-    mergeMap((action) =>
+    mergeMap(() =>
       this.service.getSkills().pipe(
         map((skills: Skill[]) => loadSkillsSuccess({ skills })),
         catchError((err) => of(loadSkillsError({ err })))
       )
     )
   );
+
+  // loadSkills$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(loadSkills),
+  //     mergeMap(() =>
+  //       this.service.getSkills().pipe(
+  //         map((skills) => ({
+  //           type: '[Skill] Load Skills Success',
+  //           payload: skills,
+  //         })),
+  //         catchError((err) => of(loadSkillsError({ err })))
+  //       )
+  //     )
+  //   )
+  // );
 }

@@ -5,6 +5,8 @@ import { Skill } from '../models/skill.model';
 export const skillFeatureKey = 'skills';
 
 export interface SkillsState {
+  map(arg0: (review: any) => any);
+  slice(arg0: number, index: any);
   skills: Skill[];
   loaded: boolean;
   menuVisible: boolean;
@@ -32,6 +34,7 @@ export function SkillReducer(
       const arrDel = state.skills.filter((s) => s.id !== action.payload.id);
       return { ...state, skills: arrDel };
     case SkillActionTypes.ToggleComplete:
+      // State not really mutated
       return { ...state };
     case SkillActionTypes.ToggleMenuVisible:
       return { ...state, menuVisible: !state.menuVisible };
