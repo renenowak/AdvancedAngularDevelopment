@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { SetToken } from './store/actions/auth.actions';
 import { AuthState } from './store/reducers/auth.reducer';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FBAuthService {
   constructor(
@@ -15,11 +15,12 @@ export class FBAuthService {
   }
 
   private onUserChanged() {
-    this.fireAuth.auth.onAuthStateChanged(user => {
-      if (user != null)
-        user.getIdToken().then(token => {
+    this.fireAuth.auth.onAuthStateChanged((user) => {
+      if (user != null) {
+        user.getIdToken().then((token) => {
           this.store.dispatch(new SetToken(token));
         });
+      }
     });
   }
 
@@ -30,7 +31,7 @@ export class FBAuthService {
   logOn(user, password) {
     return this.fireAuth.auth
       .signInWithEmailAndPassword(user, password)
-      .catch(err => {
+      .catch((err) => {
         console.log('Error logging in', err);
         return err;
       });
@@ -39,6 +40,6 @@ export class FBAuthService {
   logOff() {
     return this.fireAuth.auth
       .signOut()
-      .catch(err => console.log('Error logging out', err));
+      .catch((err) => console.log('Error logging out', err));
   }
 }

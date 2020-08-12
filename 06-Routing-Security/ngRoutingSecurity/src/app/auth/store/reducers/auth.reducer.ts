@@ -11,7 +11,7 @@ export interface AuthState {
 export const initialState: AuthState = {
   user: null,
   token: '',
-  isLoggedIn: false
+  isLoggedIn: false,
 };
 
 export function AuthReducer(
@@ -20,31 +20,31 @@ export function AuthReducer(
 ): AuthState {
   switch (action.type) {
     case AuthActionTypes.RegisterSuccess: {
-      //add your code
+      // add your code
       return {
         ...state,
         isLoggedIn: true,
-        user: action.payload as firebase.User
+        user: action.payload as firebase.User,
       };
     }
     case AuthActionTypes.RegisterErr: {
-      //add your code
+      // add your code
       return { ...state, isLoggedIn: false, user: null, token: null };
     }
     case AuthActionTypes.LoginErr: {
-      //add your code
+      // add your code
       return { ...state, isLoggedIn: false, user: null, token: null };
     }
     case AuthActionTypes.LoginSuccess: {
-      //add your code
+      // add your code
       return { ...state, isLoggedIn: true, user: action.payload };
     }
     case AuthActionTypes.LogoutComplete: {
-      //add your code
+      // add your code
       return { ...state, isLoggedIn: false, user: null, token: null };
     }
     case AuthActionTypes.SetToken: {
-      //add your code
+      // add your code
       return { ...state, token: action.payload };
     }
     default:
