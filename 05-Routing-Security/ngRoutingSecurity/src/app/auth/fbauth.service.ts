@@ -18,7 +18,7 @@ export class FBAuthService {
     this.fireAuth.auth.onAuthStateChanged((user) => {
       if (user != null) {
         user.getIdToken().then((token) => {
-          this.store.dispatch(new SetToken(token));
+          // this.store.dispatch(new SetToken(token));
         });
       }
     });
