@@ -31,6 +31,7 @@ import { RoutingComponent } from './samples/routing/routing/routing.component';
 import { DemosEffects } from './store/effects/demos.effects';
 import { demosFeatureKey, DemosReducer } from './store/reducers/demos.reducer';
 import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
+import { DemoService } from './demo.service';
 
 const demoRoutes: Routes = [
   {

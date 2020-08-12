@@ -20,24 +20,6 @@
       "sortOrder": 0
     },
     {
-      "url": "app-init",
-      "title": "App Init",
-      "component": "AppInitComponent",
-      "id": 6,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
-      "url": "dynamic-loading",
-      "title": "Dynamic Components",
-      "component": "DynamicLoadingComponent",
-      "id": 14,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "multi-interceptor",
       "title": "Interceptors",
       "component": "MultiInterceptorComponent",
@@ -60,6 +42,24 @@
       "title": "Http Errors",
       "component": "HttpErrorsComponent",
       "id": 13,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "app-init",
+      "title": "App Init",
+      "component": "AppInitComponent",
+      "id": 6,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "dynamic-loading",
+      "title": "Dynamic Components",
+      "component": "DynamicLoadingComponent",
+      "id": 14,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
