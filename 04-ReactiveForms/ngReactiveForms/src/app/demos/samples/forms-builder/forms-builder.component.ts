@@ -10,10 +10,9 @@ import { PersonService } from '../person.service';
   styleUrls: ['./forms-builder.component.scss'],
 })
 export class FormsBuilderComponent implements OnInit {
+  personForm: FormGroup;
   person: Person = emptyPerson;
   wealthOpts = wealthOpts;
-
-  personForm: FormGroup;
 
   constructor(private fb: FormBuilder, private ps: PersonService) {}
 
