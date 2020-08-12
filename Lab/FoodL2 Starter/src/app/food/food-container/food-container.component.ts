@@ -1,33 +1,38 @@
 import { Component, OnInit } from "@angular/core";
 import { FoodItem } from "../food.model";
+import { FoodFacade } from "../store/facades/food.facades";
 
 @Component({
   selector: "app-food-container",
   templateUrl: "./food-container.component.html",
-  styleUrls: ["./food-container.component.scss"]
+  styleUrls: ["./food-container.component.scss"],
 })
 export class FoodContainerComponent implements OnInit {
   food: FoodItem[];
   selected: FoodItem = null;
 
-  constructor() {}
+  constructor(private foodFacade: FoodFacade) {}
 
   ngOnInit() {
-    // this.fs.getFood().subscribe(data => (this.food = data));
+    this.foodFacade.loadFoods();
+    this.foodFacade.getFoods().subscribe((data) => (this.food = data));
   }
 
   selectFood(f: FoodItem) {
-    // this.selected = { ...f };
+    this.selected = { ...f };
   }
 
   deleteFood(f: FoodItem) {
-    console.log("deleteing ", f);
-    // this.food = this.food.filter(item => item.id != f.id);
+    console.log("deleting ", f);
+    this.foodFacade.deleteFood(f);
   }
 
   foodSaved(f: FoodItem) {
-    // this.food = this.food.filter(item => item.id != f.id);
-    // this.food.push(f);
-    // this.selected = null;
+    const existingFood = this.food.filter((food) => food.id === f.id);
+    if (existingFood) {
+    } else {
+      this.foodFacade.addFood(f);
+    }
+    this.selected = null;
   }
 }

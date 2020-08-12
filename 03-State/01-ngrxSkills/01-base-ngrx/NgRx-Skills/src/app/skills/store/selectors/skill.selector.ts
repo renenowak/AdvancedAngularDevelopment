@@ -9,3 +9,8 @@ export const getSkillData = createSelector(
   getSkillsState,
   (state: SkillsState) => state.skills
 );
+
+export const getMenuVisible = createSelector(
+  getSkillsState,
+  (state: SkillsState) => state.menuVisible
+);

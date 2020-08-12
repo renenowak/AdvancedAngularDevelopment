@@ -8,6 +8,7 @@ export enum SkillActionTypes {
   AddSkill = '[Skill] Add Skills',
   DeleteSkill = '[Skill] Delete Skills',
   ToggleComplete = '[Skill] ToggleComplete',
+  ToggleMenuVisible = '[Skill] ToggleMenuVisible',
 }
 
 export class LoadSkillsAction implements Action {
@@ -39,10 +40,15 @@ export class ToggleCompleteAction implements Action {
   constructor(public payload: Skill) {}
 }
 
+export class ToggleMenuVisibleAction implements Action {
+  readonly type = SkillActionTypes.ToggleMenuVisible;
+}
+
 export type SkillActionsUnion =
   | LoadSkillsAction
   | LoadSkillsSuccess
   | LoadSkillsError
   | AddSkillAction
   | DeleteSkillAction
-  | ToggleCompleteAction;
+  | ToggleCompleteAction
+  | ToggleMenuVisibleAction;
