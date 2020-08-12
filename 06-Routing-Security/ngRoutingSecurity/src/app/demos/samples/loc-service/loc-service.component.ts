@@ -12,7 +12,7 @@ export class LocServiceComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  logPaht() {
+  logPath() {
     console.log('Current Path', this.location.path());
   }
 }
