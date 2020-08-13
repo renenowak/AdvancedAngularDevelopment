@@ -45,7 +45,7 @@ export function initApp(appInitService: AppInitService) {
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
-      name: 'ngDemo App',
+      name: 'ngDemoApp',
       maxAge: 25,
       logOnly: environment.production,
     }),
