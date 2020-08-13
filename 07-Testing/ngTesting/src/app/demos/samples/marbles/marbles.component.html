@@ -5,7 +5,7 @@
   <mat-card-content>
     <h2>Users will pop in asynchronously:</h2>
     <ul>
-      <li class="user" *ngFor="let user of users">
+      <li class="user" *ngFor="let user of users$ | async">
         <h2>{{ user }}</h2>
       </li>
     </ul>

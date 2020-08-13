@@ -14,7 +14,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "stats": "ng build --prod --statsJson",
-    "analyze": "webpack-bundle-analyzer ./dist/maintenance-ui/stats.json -p 5010"
+    "analyze": "webpack-bundle-analyzer ./dist/ng-demoapp/stats.json -p 5010"
   },
   "private": true,
   "dependencies": {

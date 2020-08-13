@@ -7,24 +7,9 @@ import { UserService } from './services/user.service';
   templateUrl: './marbles.component.html',
   styleUrls: ['./marbles.component.scss'],
 })
-export class MarblesComponent implements OnInit, OnDestroy {
+export class MarblesComponent {
   title = 'MarbleDemo';
-
-  users: string[] = [];
-
-  private subscription: Subscription | undefined;
+  users$ = this.userService.getUsers();
 
   constructor(private userService: UserService) {}
-
-  ngOnInit() {
-    this.subscription = this.userService.getUsers.subscribe((user) => {
-      this.users.push(user);
-    });
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
 }
