@@ -39,7 +39,7 @@ describe('Component: Login - done', () => {
 
   it('returns true when the user is authenticated', (done) => {
     fixture.detectChanges();
-    let spy = spyOn(service, 'isAuthenticated').and.returnValue(of(true));
+    const spy = spyOn(service, 'isAuthenticated').and.returnValue(of(true));
     component.ngOnInit();
 
     spy.calls.mostRecent().returnValue.subscribe(() => {
