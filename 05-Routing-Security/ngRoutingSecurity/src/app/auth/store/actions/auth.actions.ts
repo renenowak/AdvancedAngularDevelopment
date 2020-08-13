@@ -11,7 +11,7 @@ export enum AuthActionTypes {
   Logout = '[Auth] Logout',
   LogoutComplete = '[Auth] LogoutComplete',
   SetToken = '[Auth] SetToken',
-  LoginRedirect = '[Auth] LoginRedirect'
+  LoginRedirect = '[Auth] LoginRedirect',
 }
 
 export class Register implements Action {
@@ -39,7 +39,7 @@ export class Login implements Action {
 
 export class LoginSuccess implements Action {
   readonly type = AuthActionTypes.LoginSuccess;
-  constructor(public payload: firebase.User) {}
+  constructor(public payload: firebase.auth.UserCredential) {}
 }
 
 export class LoginErr implements Action {

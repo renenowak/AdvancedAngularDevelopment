@@ -23,9 +23,12 @@ export function AuthReducer(
       // add your code
       return {
         ...state,
-        isLoggedIn: true,
-        user: action.payload as firebase.User,
       };
+      // return {
+      //   ...state,
+      //   isLoggedIn: true,
+      //   user: action.payload as firebase.User,
+      // };
     }
     case AuthActionTypes.RegisterErr: {
       // add your code
@@ -37,7 +40,7 @@ export function AuthReducer(
     }
     case AuthActionTypes.LoginSuccess: {
       // add your code
-      return { ...state, isLoggedIn: true, user: action.payload };
+      return { ...state, isLoggedIn: true, user: action.payload.user };
     }
     case AuthActionTypes.LogoutComplete: {
       // add your code

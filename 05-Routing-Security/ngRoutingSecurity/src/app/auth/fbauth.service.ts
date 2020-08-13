@@ -15,31 +15,24 @@ export class FBAuthService {
   }
 
   private onUserChanged() {
-    this.fireAuth.auth.onAuthStateChanged((user) => {
+    this.fireAuth.authState.subscribe((user) => {
       if (user != null) {
         user.getIdToken().then((token) => {
-          // this.store.dispatch(new SetToken(token));
+          this.store.dispatch(new SetToken(token));
         });
       }
     });
   }
 
-  createUser(email: string, password: string): Promise<any> {
-    return this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
+  async createUser(email: string, password: string): Promise<any> {
+    return await this.fireAuth.createUserWithEmailAndPassword(email, password);
   }
 
-  logOn(user, password) {
-    return this.fireAuth.auth
-      .signInWithEmailAndPassword(user, password)
-      .catch((err) => {
-        console.log('Error logging in', err);
-        return err;
-      });
+  async logOn(user, password) {
+    return await this.fireAuth.signInWithEmailAndPassword(user, password);
   }
 
-  logOff() {
-    return this.fireAuth.auth
-      .signOut()
-      .catch((err) => console.log('Error logging out', err));
+  async logOff() {
+    return await this.fireAuth.signOut();
   }
 }
