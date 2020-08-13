@@ -25,6 +25,8 @@ describe('Food Row Integration Test', () => {
   it('should render the food name', () => {
     fixture.componentInstance.food = { name: 'Pad Thai', rating: 5 };
     fixture.detectChanges();
+
+    // Do one of the tests below
     expect(
       fixture.nativeElement.querySelector('#itemName').textContent
     ).toContain('Pad Thai');
