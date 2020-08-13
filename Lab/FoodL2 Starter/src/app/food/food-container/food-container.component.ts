@@ -30,6 +30,7 @@ export class FoodContainerComponent implements OnInit {
   foodSaved(f: FoodItem) {
     const existingFood = this.food.filter((food) => food.id === f.id);
     if (existingFood) {
+      this.foodFacade.editFood(f);
     } else {
       this.foodFacade.addFood(f);
     }

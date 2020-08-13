@@ -17,6 +17,10 @@ import { EffectsModule } from "@ngrx/effects";
 import { reducers, metaReducers } from "./store";
 import { environment } from "src/environments/environment";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import {
+  StoreRouterConnectingModule,
+  DefaultRouterStateSerializer,
+} from "@ngrx/router-store";
 
 @NgModule({
   declarations: [
@@ -42,6 +46,9 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
         strictStateImmutability: true,
         strictActionImmutability: true,
       },
+    }),
+    StoreRouterConnectingModule.forRoot({
+      serializer: DefaultRouterStateSerializer,
     }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],

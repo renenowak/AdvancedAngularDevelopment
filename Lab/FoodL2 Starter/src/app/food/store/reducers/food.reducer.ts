@@ -1,5 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
-import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
+import {
+  createEntityAdapter,
+  EntityAdapter,
+  EntityState,
+  Update,
+} from "@ngrx/entity";
 import { FoodItem } from "../../food.model";
 import {
   loadFoodsSuccess,
@@ -33,9 +38,9 @@ export const foodReducer = createReducer(
   on(addFood, (state, action) => foodAdapter.addOne(action.food, { ...state })),
   on(editFood, (state, action) => {
     const updateSkill: Update<FoodItem> = {
-      id: action.skill.id,
-      changes: { completed: !action.skill.completed },
+      id: action.food.id,
+      changes: { ...action.food },
     };
-    return foodAdapter.updateOne();
+    return foodAdapter.updateOne(updateSkill, { ...state });
   })
 );
