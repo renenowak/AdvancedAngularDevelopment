@@ -19,40 +19,35 @@ export function AuthReducer(
   action: AuthActions
 ): AuthState {
   switch (action.type) {
-    // case AuthActionTypes.RegisterSuccess: {
-    // add your code
-    // return {
-    //   ...state,
-    // };
-    // return {
-    //   ...state,
-    //   isLoggedIn: true,
-    //   user: action.payload as firebase.User,
-    // };
-    // }
-    // case AuthActionTypes.RegisterErr: {
-    //   // add your code
-    //   return { ...state, isLoggedIn: false, user: null, token: null };
-    // }
-    // case AuthActionTypes.LoginErr: {
-    //   // add your code
-    //   return { ...state, isLoggedIn: false, user: null, token: null };
-    // }
-    // case AuthActionTypes.LoginSuccess: {
-    //   // add your code
-    //   return { ...state, isLoggedIn: true, user: action.payload.user };
-    // }
-    // case AuthActionTypes.LogoutComplete: {
-    //   // add your code
-    //   return { ...state, isLoggedIn: false, user: null, token: null };
-    // }
-    // case AuthActionTypes.SetToken: {
-    // add your code
-    // return { ...state, token: action.payload };
-    // return {
-    //   ...state,
-    // };
-    // }
+    case AuthActionTypes.RegisterSuccess: {
+      // add your code
+
+      return {
+        ...state,
+        isLoggedIn: true,
+        user: action.payload as firebase.User,
+      };
+    }
+    case AuthActionTypes.RegisterErr: {
+      // add your code
+      return { ...state, isLoggedIn: false, user: null, token: null };
+    }
+    case AuthActionTypes.LoginErr: {
+      // add your code
+      return { ...state, isLoggedIn: false, user: null, token: null };
+    }
+    case AuthActionTypes.LoginSuccess: {
+      // add your code
+      return { ...state, isLoggedIn: true, user: action.payload.user };
+    }
+    case AuthActionTypes.LogoutComplete: {
+      // add your code
+      return { ...state, isLoggedIn: false, user: null, token: null };
+    }
+    case AuthActionTypes.SetToken: {
+      // add your code
+      return { ...state, token: action.payload };
+    }
     default:
       return state;
   }

@@ -7,7 +7,10 @@ import { AuthState } from './store/reducers/auth.reducer';
   providedIn: 'root',
 })
 export class FBAuthService {
-  constructor(private fireAuth: AngularFireAuth) {
+  constructor(
+    private fireAuth: AngularFireAuth,
+    private store: Store<AuthState>
+  ) {
     this.onUserChanged();
   }
 
@@ -18,7 +21,7 @@ export class FBAuthService {
       this.fbUser = user;
       if (user != null) {
         this.fbUser.getIdToken().then((token) => {
-          // this.store.dispatch(new SetToken(token));
+          this.store.dispatch(new SetToken(token));
         });
       }
     });
